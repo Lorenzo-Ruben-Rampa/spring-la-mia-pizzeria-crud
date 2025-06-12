@@ -1,5 +1,4 @@
 package org.lessons.java.pizzeria_crud;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

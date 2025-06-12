@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+        <section class="row">
+            <div class="col-12">
+                <table class="table" th:if="${books.size() > 0}">
+                <tbody>
+                    <tr th:each="book : ${books}" th:object="${book}">
+                    <td>[[*{isbn}]]</td>
+                    <td>[[*{title}]]</td>
+                    <td>[[*{author}]]</td>
+                    <td>[[*{publisher}]]</td>
+                    <td>[[*{publicationDate}]]</td>
+                    <td>[[*{numberOfCopies}]]</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                <p th:text="Nessun libro disponibile" th:unless="${books.size > 0}" />
+</body>
+</html>
