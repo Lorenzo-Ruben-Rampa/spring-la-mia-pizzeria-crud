@@ -1,0 +1,48 @@
+ul {
+    list-style: none;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+.inline {
+    display: inline;
+}
+
+header {
+    height: 300px;
+}
+
+.navbar {
+        background-image: url("../img/tatooine-header.jpg");
+        height:300px;
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position: center;
+        
+}
+
+.table {
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    left: 25%;
+}
+
+.list-images {
+    height: 300px;
+    width: 500px;
+}
+
+td {
+    text-align: center;
+}

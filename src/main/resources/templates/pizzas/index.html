@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - Best of the Year</title>
+    <th:block th:insert="~{fragments :: styles}"></th:block>
+</head>
+<body>
+     <header>
+        <th:block th:insert="~{fragments :: header}"></th:block>
+    </header>
+    <main class="container mt-3">
+        <section class="row">
+            <h2 class="text-center mt-3 mb-3 text-danger">Le nostre pizze</h2>
+            <div class="col-12">
+                <table class="table" th:if="${pizzas.size() > 0}">
+                    <tbody>
+                        <tr th:each="pizza : ${pizzas}" th:object="${pizza}">
+                            <td class="fs-3 align-middle text-warning">[[*{name}]]</td>
+                            <td class="align-middle">[[*{description}]]</td>
+                            <td class="align-middle text-warning">Prezzo: <br>[[*{price}]] euro</td>
+                            <td> <img class= "list-images" th:src="*{urlImage}" alt="*{name}"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            <p th:text="'Nessuna pizza disponibile'" th:unless="${pizzas.size > 0}" />
+    </main>
+</body>
+</html>

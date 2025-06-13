@@ -1,7 +1,5 @@
 package org.lessons.java.pizzeria_crud.model;
 import java.math.BigDecimal;
-import java.time.LocalDate;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +8,7 @@ import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.persistence.Column;
 
 @Entity
 @Table(name="pizzas")
@@ -24,7 +23,7 @@ public class Pizza {
     @Lob
     private String description;
 
-    @NotBlank(message="linkImage")
+    @Column(name = "url_image")
     private String urlImage;
 
     @NotBlank(message="price")
