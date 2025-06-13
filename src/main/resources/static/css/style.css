@@ -1,10 +1,16 @@
+body {
+    background-color: black;
+    color: white;
+}
+
 ul {
     list-style: none;
 }
 
-body {
-    background-color: black;
-    color: white;
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
 }
 
 footer {
@@ -25,8 +31,7 @@ header {
         height:300px;
         background-repeat: no-repeat;
         background-size:cover;
-        background-position: center;
-        
+        background-position: center;  
 }
 
 .table {
@@ -43,6 +48,19 @@ header {
     width: 500px;
 }
 
+.list-images-big {
+    height:600px;
+    width:800px;
+}
+
 td {
     text-align: center;
+}
+
+.card-body {
+    background-color:rgb(255, 72, 0);
+}
+
+.card {
+    background-color: black;
 }
