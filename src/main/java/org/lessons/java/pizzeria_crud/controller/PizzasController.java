@@ -11,9 +11,7 @@ import java.util.List;
 import org.lessons.java.pizzeria_crud.model.Pizza;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.Optional;
-
 
 @Controller
 @RequestMapping("/pizzas")
@@ -23,8 +21,14 @@ public class PizzasController {
     private PizzasRepository repository;
 
     @GetMapping
-    public String index (Model model) {
-        List<Pizza>pizzas=repository.findAll();
+    public String index (Model model, @RequestParam(name="pizzaName", required=false) String searchPizzaName) {
+        List<Pizza>pizzas;
+            if (searchPizzaName != null && !searchPizzaName.isBlank()) {
+                pizzas = repository.findByNameContainingIgnoreCase(searchPizzaName);
+                model.addAttribute("searchPizzaName", searchPizzaName);
+            } else {
+                pizzas = repository.findAll();
+            }
         model.addAttribute("pizzas", pizzas);
         return "pizzas/index";
     }
