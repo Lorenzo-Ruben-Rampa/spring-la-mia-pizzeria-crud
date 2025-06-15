@@ -53,7 +53,13 @@
                         </li>
                         <li>
                             <label for="urlImage">Inserire l'URL dell'immagine (deve iniziare sempre con /img/): </label>
-                            <input type="text" class="form-control" id="urlImage" th:field="*{urlImage}">
+                            <input type="text" class="form-control" id="urlImage" th:field="*{urlImage}" th:errorClass="is-invalid">
+                            <div th:if="${#fields.hasErrors('urlImage')}" class="invalid-feedback">
+                                <ul>
+                                    <li th:each="err: ${#fields.errors('urlImage')}" th:text="${err}">
+                                    </li>
+                                </ul>
+                            </div>                       
                         </li>
                     </ul>    
                     <div class="text-center mt-4">
