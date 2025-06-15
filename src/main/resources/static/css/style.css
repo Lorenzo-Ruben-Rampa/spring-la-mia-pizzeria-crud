@@ -64,3 +64,24 @@ td {
 .card {
     background-color: black;
 }
+
+.fixed-input {
+    margin-top: 15px;
+    width: 300px;
+}
+
+label {
+    width: 470px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.small-input {
+    width: 100px;
+    margin-left: 110px;
+}

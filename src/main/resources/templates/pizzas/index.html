@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home - Best of the Year</title>
+    <title>Lista Pizze</title>
     <th:block th:insert="~{fragments :: styles}"></th:block>
 </head>
 <body>
@@ -20,7 +20,6 @@
                 th:value="${searchPizzaName}"> <button type="submit" class="btn btn-outline-warning">Cerca</button>
             </div>
         </form>
-
             <div class="col-12">
                 <table class="table" th:if="${pizzas.size() > 0}">
                     <tbody>
@@ -30,6 +29,7 @@
                             <td class="align-middle text-warning">Prezzo: <br>[[*{price}]] euro</td>
                             <td> <img class= "list-images" th:src="*{urlImage}" alt="*{name}"</td>
                             <td class="align-middle" > <a th:href="@{/pizzas/{id}(id=*{id})}" class="btn btn-info btn-sm">Dettagli</a> </td>
+                            <td class="align-middle"> <a th:href="@{/pizzas/create}" class="btn btn-info btn-sm">Aggiungi pizza</a></td>
                         </tr>
                     </tbody>
                 </table>

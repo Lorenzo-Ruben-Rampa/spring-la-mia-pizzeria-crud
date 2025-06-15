@@ -6,9 +6,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name="pizzas")
@@ -17,7 +19,8 @@ public class Pizza {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
-    @NotEmpty(message="name")
+    @NotEmpty(message="Il nome non può essere vuoto")
+    @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Il nome può contenere solo lettere e spazi.")
     private String name;
 
     @Lob
@@ -26,7 +29,8 @@ public class Pizza {
     @Column(name = "url_image")
     private String urlImage;
 
-    @NotBlank(message="price")
+    @NotNull(message="Il prezzo non può essere vuoto o < di zero")
+    @DecimalMin(value = "0.01", message = "Il prezzo deve essere maggiore di zero")
     private BigDecimal price;
 
     //Getter e Setter
