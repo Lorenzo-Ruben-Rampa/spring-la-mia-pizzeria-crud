@@ -23,6 +23,7 @@ public class Pizza {
 
     @NotEmpty(message="Il nome non può essere vuoto")
     @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Il nome può contenere solo lettere e spazi.")
+    @Size(max = 100, message = "Il nome non può superare i 100 caratteri.")
     private String name;
 
     @Lob

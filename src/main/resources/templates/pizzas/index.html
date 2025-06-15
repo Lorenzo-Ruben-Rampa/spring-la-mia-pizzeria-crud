@@ -13,13 +13,13 @@
     <main class="container mt-3">
         <section class="row">
             <h2 class="text-center mt-3 mb-3 text-danger">Le nostre pizze</h2>
-
         <form method="GET" th:action="@{/pizzas}" class="mb-4">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Cerca pizza per nome..." name="pizzaName" 
                 th:value="${searchPizzaName}"> <button type="submit" class="btn btn-outline-warning">Cerca</button>
             </div>
         </form>
+            <div class="d-flex justify-content-center mb-3"><a th:href="@{/pizzas/create}" class="btn btn-success btn-sm">Aggiungi pizza</a></div>
             <div class="col-12">
                 <table class="table" th:if="${pizzas.size() > 0}">
                     <tbody>
@@ -29,7 +29,7 @@
                             <td class="align-middle text-warning">Prezzo: <br>[[*{price}]] euro</td>
                             <td> <img class= "list-images" th:src="*{urlImage}" alt="*{name}"</td>
                             <td class="align-middle" > <a th:href="@{/pizzas/{id}(id=*{id})}" class="btn btn-info btn-sm">Dettagli</a> </td>
-                            <td class="align-middle"> <a th:href="@{/pizzas/create}" class="btn btn-info btn-sm">Aggiungi pizza</a></td>
+                            <td class="align-middle"> <a th:href="@{/pizzas/edit/{id}(id=${pizza.id})}" class="btn btn-info btn-sm">Modifica</a> </td>
                         </tr>
                     </tbody>
                 </table>
