@@ -17,6 +17,8 @@ import org.springframework.validation.BindingResult;
 // import org.springframework.web.server.ResponseStatusException;
 // import java.util.Optional;
 // import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 @RequestMapping("/pizzas")
@@ -91,6 +93,11 @@ public class PizzasController {
         return "redirect:/pizzas";
     }
 
-
     //DELETE
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        repository.deleteById(id);
+        return "redirect:/pizzas";
+    }
+    
 }

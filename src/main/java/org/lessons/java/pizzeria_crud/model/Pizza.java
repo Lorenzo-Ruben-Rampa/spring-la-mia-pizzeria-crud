@@ -28,7 +28,7 @@ public class Pizza {
 
     @Lob
     @NotBlank(message = "La descrizione non può essere vuota.")
-    @Size(max = 255, message = "La descrizione non può superare i 255 caratteri.")
+    @Size(max = 455, message = "La descrizione non può superare i 455 caratteri.")
     private String description;
 
     @NotBlank(message="Questo campo è obbligatorio")

@@ -30,6 +30,13 @@
                             <td> <img class= "list-images" th:src="*{urlImage}" alt="*{name}"</td>
                             <td class="align-middle" > <a th:href="@{/pizzas/{id}(id=*{id})}" class="btn btn-info btn-sm">Dettagli</a> </td>
                             <td class="align-middle"> <a th:href="@{/pizzas/edit/{id}(id=${pizza.id})}" class="btn btn-info btn-sm">Modifica</a> </td>
+                            <td class="align-middle">
+                                <form action="@" th:action="@{'/pizzas/delete/{id}' (id=${pizza.id})}" method="post">
+                                    <button class="btn btn-danger btn-sm" type="submit" id="submitButton">
+                                        <i class="fas fa-trash-alt"></i>Cancella
+                                    </button> 
+                                </form>
+                            </td>                            
                         </tr>
                     </tbody>
                 </table>
