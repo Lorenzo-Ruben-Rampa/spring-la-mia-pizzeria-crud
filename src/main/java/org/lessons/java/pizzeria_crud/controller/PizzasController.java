@@ -12,6 +12,7 @@ import org.lessons.java.pizzeria_crud.model.Pizza;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 @RequestMapping("/pizzas")
@@ -33,15 +34,21 @@ public class PizzasController {
         return "pizzas/index";
     }
 
+    // @GetMapping("/{id}")
+    //     public String pizzaDetail(Model model, @PathVariable("id") int id) {
+    //     Optional<Pizza> result = repository.findById(id);
+    //        if (result.isPresent()) {
+    //         Pizza pizzaFound = result.get();
+    //         model.addAttribute("pizza", pizzaFound);
+    //         return "pizzaDetail";
+    //     } else {
+    //         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pizza con ID " + id + " non trovata.");
+    //     }
+    // }    
+    
     @GetMapping("/{id}")
-        public String pizzaDetail(Model model, @PathVariable("id") int id) {
-        Optional<Pizza> result = repository.findById(id);
-           if (result.isPresent()) {
-            Pizza pizzaFound = result.get();
-            model.addAttribute("pizza", pizzaFound);
-            return "pizzaDetail";
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pizza con ID " + id + " non trovata.");
+        public String show(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("pizza", repository.findById(id).get());
+        return "/pizzaDetail";
         }
-    }       
 }
